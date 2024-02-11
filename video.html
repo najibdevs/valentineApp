@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Video</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>😂😂😂😂😂😂😂</h2>
+        <video id="valentines-video" autoplay="autoplay" controls="controls" loop="loop">
+            <source id="video-source" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            let searchParams = new URLSearchParams(window.location.search);
+            return searchParams.get(param);
+        }
+
+        // Extract the videoUrl parameter from the URL
+        let videoUrl = getQueryParam('videoUrl');
+
+        // Correct path backslashes and set the video source dynamically
+        if (videoUrl) {
+            videoUrl = videoUrl.replace(/\\/g, '/'); // Ensure correct path format
+            document.getElementById('valentines-video').src = videoUrl;
+            document.getElementById('valentines-video').play(); // Start playing the video
+        }
+    </script>
+</body>
+</html>
